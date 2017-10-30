@@ -20,3 +20,4 @@ task('harmonic:php7.1-reload', function() {
 
 after('deploy:vendors', 'deploy:clear_paths');
 after('cleanup', 'harmonic:php7.1-reload');
+after('deploy:failed', 'deploy:unlock');
