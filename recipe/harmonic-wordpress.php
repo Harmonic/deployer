@@ -10,6 +10,8 @@ namespace Deployer;
 require_once __DIR__ . '/wordpress.php';
 require_once __DIR__ . '/harmonic.php';
 
+set('shared_files', ['wp-config.php', '.env']);
+
 desc('Harmonic Tasks');
 task('harmonic:setup', function() {
     echo "Running project configuration (node, gulp, compilation etc)";
