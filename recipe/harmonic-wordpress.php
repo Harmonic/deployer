@@ -23,9 +23,9 @@ task('harmonic:setup', function() {
         $stage = input()->getArgument('stage');
     }
     if ('production' == $stage) {
-        run("cd @{{release_path}} && node_modules/gulp/bin/gulp.js --production");
+        run("cd {{release_path}} && node_modules/gulp/bin/gulp.js --production");
     } else {
-        run("cd @{{release_path}} && node_modules/gulp/bin/gulp.js");
+        run("cd {{release_path}} && node_modules/gulp/bin/gulp.js");
     }
 
     echo "Project successfully configured!";
