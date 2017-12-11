@@ -13,18 +13,23 @@ require_once __DIR__ . '/harmonic.php';
 set('shared_files', ['wp-config.php', '.env']);
 
 desc('Harmonic Tasks');
-task('harmonic:setup', function() {
+task('harmonic:setup', function () {
     echo "Running project configuration (node, gulp, compilation etc)";
     run("cd {{release_path}} && npm install");
     run("cd {{release_path}} && node_modules/gulp/bin/gulp.js build");
-    
+
     $stage = null;
     if (input()->hasArgument('stage')) {
         $stage = input()->getArgument('stage');
     }
-    if ('production' == $stage) {
+    $gulp = false;
+    if (input()->hasArgument('gulp')) {
+        $gulp = input()->getArgument('gulp');
+        if (strtolower($gulp) == 'true') $gulp = true;
+    }
+    if ('production' == $stage && $gulp) {
         run("cd {{release_path}} && node_modules/gulp/bin/gulp.js --production");
-    } else {
+    } elseif ($gulp) {
         run("cd {{release_path}} && node_modules/gulp/bin/gulp.js");
     }
 
