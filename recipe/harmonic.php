@@ -12,6 +12,7 @@ set('default_stage', 'production');
 set('ssh_multiplexing', true);
 set('clear_paths', ['.git', 'deploy.php', 'bitbucket-pipelines.yml']);
 set('shared_files', ['.env']);
+set('keep_releases', 3);
 
 desc('Reload PHP');
 task('harmonic:php7.1-reload', function () {
