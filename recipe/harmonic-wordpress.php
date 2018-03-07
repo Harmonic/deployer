@@ -31,10 +31,4 @@ task('deploy', [
     'cleanup'
 ])->desc('Deploy your project');
 
-desc('Harmonic Remove Old Themes');
-task('harmonic:remove-wp-themes', function () {
-    run("cd {{release_path}} && wp --path='web' theme delete twentysixteen twentyseventeen twentyfifteen");
-});
-
-after('harmonic:setup', 'harmonic:remove-wp-themes');
 after('deploy', 'success');
