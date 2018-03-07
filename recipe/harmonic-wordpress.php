@@ -7,19 +7,22 @@
 
 namespace Deployer;
 
-require_once __DIR__ . '/wordpress.php';
+//require_once __DIR__ . '/wordpress.php';
 require_once __DIR__ . '/harmonic.php';
 
-set('shared_files', ['.env']);
+set('shared_files', ['.env', 'web/wp-config.php']);
+set('shared_dirs', ['wp-content/uploads']);
+set('writable_dirs', ['wp-content/uploads']);
 
 task('deploy', [
+    'deploy:info',
     'deploy:prepare',
     'deploy:lock',
     'deploy:release',
     'deploy:update_code',
     'deploy:shared',
-    'deploy:writable',
     'deploy:vendors',
+    'deploy:writable',
     'deploy:clear_paths',
     'deploy:symlink',
     'harmonic:setup',
