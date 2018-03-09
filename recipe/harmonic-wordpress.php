@@ -11,8 +11,8 @@ namespace Deployer;
 require_once __DIR__ . '/harmonic.php';
 
 set('shared_files', ['.env']);
-set('shared_dirs', ['wp-content/uploads']);
-set('writable_dirs', ['wp-content/uploads']);
+set('shared_dirs', ['web/wp-content/uploads']);
+set('writable_dirs', ['web/wp-content/uploads']);
 
 task('deploy', [
     'deploy:info',
