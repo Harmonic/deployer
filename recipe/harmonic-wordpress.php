@@ -21,12 +21,10 @@ task('deploy', [
     'deploy:release',
     'deploy:update_code',
     'deploy:shared',
-    'deploy:vendors',
     'deploy:writable',
-    'deploy:clear_paths',
+    'deploy:vendors',
     'deploy:symlink',
     'harmonic:setup',
-    'harmonic:gulp',
     'deploy:unlock',
     'cleanup'
 ])->desc('Deploy your project');
