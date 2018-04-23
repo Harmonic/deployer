@@ -24,7 +24,6 @@ task('deploy', [
     'deploy:writable',
     'deploy:vendors',
     'deploy:symlink',
-    'harmonic:setup',
     'deploy:unlock',
     'cleanup'
 ])->desc('Deploy your project');
