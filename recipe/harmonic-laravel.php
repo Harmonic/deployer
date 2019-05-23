@@ -34,4 +34,4 @@ task('harmonic:laravel-queue-restart', function () {
     run('cd {{release_path}} && php artisan queue:restart');
 });
 
-after('artisan:cache:clear', 'harmonic:setup');
+// after('artisan:cache:clear', 'harmonic:setup');
